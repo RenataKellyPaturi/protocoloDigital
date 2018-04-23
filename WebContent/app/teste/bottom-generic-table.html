@@ -1,0 +1,8 @@
+<div class="row">
+	<div class="col-xs-12 col-md-12" style="text-align: right">
+		<button class="btn btn-primary" ng-disabled="appCtrl.currentPageOfGenericList == 0"
+			ng-click="appCtrl.currentPageOfGenericList=appCtrl.currentPageOfGenericList-1">Página Anterior</button>
+		<button class="btn btn-primary" ng-disabled="appCtrl.currentPageOfGenericList >= appCtrl.dataOfGenericList.length/appCtrl.pageSizeOfGenericList - 1"
+			ng-click="appCtrl.currentPageOfGenericList=appCtrl.currentPageOfGenericList+1">Próxima Página</button>
+	</div>
+</div>

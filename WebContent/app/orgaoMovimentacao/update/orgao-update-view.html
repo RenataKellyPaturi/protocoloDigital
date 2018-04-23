@@ -1,0 +1,56 @@
+<div class="row">
+	<ol id="breadcrumb">		
+		<li> <a href="#home"> <i class="fa fa-home"></i> Página Inicial </a> </li>
+		<li> <a href="#"> <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+		<li> <a href="#orgao-list"> Encaminhar Processo</a> </li>
+		<li> <a href="#"> <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+		<li> <a href="#orgao-update"> Atualizar Encaminhamento de Processo</a> </li>
+	</ol>
+</div>
+
+<div id="rowForNav" ng-include="'app/shared/template/app-side-bar.html'"></div>
+
+<div class="page-content-wrapper">
+		<div class="page-content">
+			<h3 class="page-title">
+				Encaminhar Processo <small> Atualizar </small>
+			</h3>
+			<div class="row ">
+				<div class="col-md-12 col-sm-12">
+					
+					<form method="POST" ng-submit="orgaoUpdateController.editarOrgao()" >
+						<div class="form-group">							
+								<div class="row">	
+								<div class="col-xs-8 col-md-8">						
+									<label for=" nome">Nome Orgão </label>							
+									<input class="form-control" type="text" ng-model="orgaoUpdateController.orgao.origemEnviada" id="nome" required="required">
+								</div>
+								<div class="col-xs-4 col-md-4">
+									<label for="data" class="col-form-label" >Data:</label>							
+									<input class="form-control" type="text" ng-model="orgaoUpdateController.orgao.dataMovimentacao" id="data" required="required">
+								</div>
+							</div>		
+														
+						</div>
+						<div class="col-xs-4 col-md-4">
+							<label>Número do Processo</label>
+							<select class="form-control" for="processo" ng-model="orgaoUpdateController.orgao.fichaProcesso" ng-options = "processo as processo.numeroProcesso for processo  in orgaoUpdateController.processos track by processo.id">
+							<option value = "">Selecione</option>
+							</select>
+						</div>
+						<div class="row">
+						<div class="col-md-9 col-md-offset-9">
+							<input class="btn btn-success" type="submit" value="Confirmar" />
+							<a href="#orgao-list" class="btn btn-default">Cancela</a>
+						</div>
+						</div>
+					</form>	
+
+					
+
+				</div>
+			</div>
+		</div>
+</div>
+
+

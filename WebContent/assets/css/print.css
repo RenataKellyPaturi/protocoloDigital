@@ -1,0 +1,68 @@
+/***
+Import fonts
+***/
+
+body{
+	font-family: "Open Sans", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+}
+
+h3 {
+    font-size: 23px;
+}
+
+#topo,
+#rodape,
+#sidebar,
+#tab,
+.page-title,
+.page-bar,
+.portlet-title,
+.no-print{
+	display: none;
+	
+}
+.borda{
+	border: 1px solid #FFF;
+}
+
+.quebrapagina {
+	page-break-after: always;
+	page-break-inside: avoid;
+}
+
+.table{
+	width: 100%;
+	text-align: left;
+	font-size: 12px;
+	page-break-inside:auto;
+	border-collapse:collapse;
+	
+	
+}
+
+.table th, .table td {
+	border-collapse:collapse;
+}
+
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+    border-top: 1px solid #FFF;
+}
+
+.table tr { 
+	page-break-inside:avoid; 
+	page-break-after:auto;
+}
+
+
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+	padding: 8px;
+	line-height: 1.42857143;
+	vertical-align: top;
+	border-top: 1px solid #FFF;
+}

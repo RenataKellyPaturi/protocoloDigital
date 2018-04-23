@@ -1,0 +1,32 @@
+<div id="navbar" class="collapse navbar-collapse">
+	<ul class="nav navbar-nav">
+		<li>
+			<a href="#home" ng-class="{ 'active' : page=='home' }">Página Inicial</a>
+		</li>
+		
+		<!--Menus do Administrador -->
+		<li ng-show="appCtrl.usarioLogado.profile == 'Administrador' || appCtrl.usarioLogado.profile == 'Operador'">
+			<a href="#listar-equipamentos" ng-class="{ 'active' : page=='listar-equipamentos' }">Equipamentos</a>
+		</li>
+		<li ng-show="appCtrl.usarioLogado.profile == 'Administrador' || appCtrl.usarioLogado.profile == 'Operador'">
+			<a href="#listar-local" ng-class="{ 'active' : page=='listar-local' }">Locais</a>
+		</li>
+		<li ng-show="appCtrl.usarioLogado.profile == 'Administrador' || appCtrl.usarioLogado.profile == 'Operador'">
+			<a href="#lista-reserva-equipamento-adm" ng-class="{ 'active' : page=='lista-reserva-equipamento-adm' }">Reserva De Equipamentos</a>
+		</li>
+		<li ng-show="appCtrl.usarioLogado.profile == 'Administrador' || appCtrl.usarioLogado.profile == 'Operador'">
+			<a href="#listar-reservas-locais-adms" ng-class="{ 'active' : page=='listar-reservas-locais-adms' }">Reserva De Locais</a>
+		</li>
+		<!--Menus do Administrador .:. END -->
+		
+		<!--Menus do Professor -->
+		<li ng-show="appCtrl.usarioLogado.profile == 'Professor'">
+			<a href="#lista-reserva-equipamento-prof" ng-class="{ 'active' : page=='lista-reserva-equipamento-prof' }">Reserva De Equipamentos</a>
+		</li>
+		<li ng-show="appCtrl.usarioLogado.profile == 'Professor'">
+			<a href="#listar-reservas-locais-profs" ng-class="{ 'active' : page=='listar-reservas-locais-profs' }">Reserva De Locais</a>
+		</li>
+		<!--Menus do Professor .:. END -->
+		
+	</ul>
+</div>

@@ -1,0 +1,93 @@
+<div class="row">
+	<ol id="breadcrumb">		
+		<li> <a href="#home"> <i class="fa fa-home"></i> Página Inicial </a> </li>
+		<li> <a href="#"> <i class="fa fa-angle-right" aria-hidden="true"></i></a> </li>
+		<li> <a href="#orgao-list"> Encaminhar Processo</a> </li>
+	</ol>
+</div>
+
+<div id="rowForNav" ng-include="'app/shared/template/app-side-bar.html'"></div>
+ 
+ <div class="page-content-wrapper">
+		<div class="page-content">
+			
+			<div class="row ">
+				<div class="col-md-12 col-sm-12">
+				<div class="col-sm-12">
+					<div class="tab-content">
+						
+						<div class="tab-pane active" id="tab-sobre">
+							<div class="panel panel-default">
+							    <div class="panel-heading">
+							    	
+									<div class="panel-ctrls pull-right">
+										<div class="DTTT btn-group  mt-sm">
+											<a href="#orgao-new" class="btn btn-info DTTT_button_text">
+											<i class="ti ti-plus"></i> <span>Novo Encaminhamento de Processo</span></a>
+										</div>
+									</div>
+									<h2>Listagem de Encaminhamento de Processo</h2>
+							    </div>
+								<div class="panel-body no-padding">
+									<table class="table table-striped table-bordered datatables no-footer dataTable">
+										<thead>
+											<tr>
+												<th>Nome</th>
+												<th>Data Movimentação</th>
+												<th>Numero Processo</th>
+												<th>#</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr ng-repeat="orgao in dataOfGenericList | 
+												   startFrom:currentPageOfGenericList*pageSizeOfGenericList | 
+												   limitTo:pageSizeOfGenericList">
+												   
+												<td>{{orgao.origemEnviada}}</td>
+												<td>{{orgao.dataMovimentacao}}</td>
+												<td>{{orgao.ficha.numeroProcesso}}</td>
+								
+												<td>
+													<a href="#orgao-update/{{orgao.id}}" class="btn btn-primary" ng-hide="orgao.nomeOrgaoMovimentacao == 'Carregando...' || orgao.nomeOrgaoMovimentacao == 'Nenhum orgao para listar :.'">
+														Atualizar
+													</a>
+													<a class="btn btn-primary" ng-click="orgaoListController.inativaOrgao(orgao.id)" ng-checked="{{orgao.status}}">
+														Inativar
+													</a>
+													 
+												</td>
+											 </tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="panel-footer">
+									<div class="row">
+										<div class="col-sm-6 col-md-offset-6">
+											<div class="dataTables_paginate paging_bootstrap" id="example_paginate">
+												<ul class="pagination pull-right m-n">
+													<li ng-hide="currentPageOfGenericList == 0" ng-click="currentPageOfGenericList=currentPageOfGenericList-1" class="previous">
+														<a> Página Anterior </a>
+													</li>
+													<li ng-hide="currentPageOfGenericList >= dataOfGenericList.length/pageSizeOfGenericList - 1" ng-click="currentPageOfGenericList=currentPageOfGenericList+1" class="previous">
+														<a> Próxima Página </a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div><!--  .tab-content  -->
+				</div>
+
+		
+		
+
+				</div>	
+			</div>
+		</div>
+</div>
+
+

@@ -1,0 +1,91 @@
+<div class="row">
+	<ol id="breadcrumb">		
+		<li> <a href="#home"> <i class="fa fa-home"></i> Página Inicial </a> </li>
+		<li> <a href="#"> <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+		<li> <a href="#processo-list"> Processo</a> </li>
+		<li> <a href="#"> <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+		<li> <a href="#processo-update"> Atualizar Processo</a> </li>
+	</ol>
+</div>
+
+<div id="rowForNav" ng-include="'app/shared/template/app-side-bar.html'"></div>
+
+<div class="page-content-wrapper">
+	<div class="page-content">
+		<h3 class="page-title" class="no-print">
+			Processo <small> Atualizar</small>
+		</h3>
+			
+			<div class="row ">
+				<div class="col-md-12 col-sm-12">
+					
+					<form method="POST" ng-submit="processoUpdateController.atualizarCadastro()" >
+						
+						<div class="form-group">
+							<div class="row">								
+								<div class="col-xs-6 col-md-6">
+									<label>Numero Processo:</label>
+									<input type="text" class="form-control" ng-model="processoUpdateController.processo.numeroProcesso" >
+								</div>									
+								<div class="col-xs-6 col-md-6">
+									<label>Data:</label>
+									<input type="text" class="form-control" ng-model="processoUpdateController.processo.dataProcesso">
+								</div>									
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-xs-12 col-md-12">
+									<label>Nome:</label>
+									<select class="form-control" for="requerente" ng-model="processoUpdateController.processo.requerente" 
+																				  ng-options="requerente as requerente.nome for requerente  in processoUpdateController.requerentes track by requerente.id" 
+																				  required="required"> 
+										<option value="">Selecione</option> 										
+									</select>									
+								</div>
+																						
+							</div>
+						</div>				
+						
+							<div class="form-group">
+									<div class="row">										
+										<div class="col-xs-6 col-md-6">
+											<label>Servico:</label>
+											<select class="form-control" for="servico" ng-model="processoUpdateController.processo.servico" ng-options="servico as servico.nome for servico in processoUpdateController.servicos track by servico.id" required="required"> 
+												<option value="">Selecione</option> 												
+											</select>
+										</div>
+										<div class="col-xs-6 col-md-6">
+											<label>Secretaria de Destino:</label>
+											<select class="form-control" for="secretaria" ng-model="processoUpdateController.processo.secretaria" ng-options="secretaria as secretaria.nome for secretaria in processoUpdateController.secretarias track by secretaria.id" required="required"> 
+												<option value="">Selecione</option> 												
+											</select>
+										</div>
+									</div>
+								</div>
+																
+							   <div class="form-group">
+									<div class="row">
+										<div class="col-xs-12 col-md-12">
+											<label>Especifique anexos:</label>
+											<textarea class="form-control" rows="3" ng-model="processoUpdateController.processo.documentos" required="required"></textarea>
+										</div>																										
+									</div>
+							   </div>	
+							   
+							 
+							 <div class="row">
+								<div class="col-md-9 col-md-offset-9">
+										<input class="btn btn-success" type="submit" value="Confirmar" />
+										<a href="#processo-list" class="btn btn-default">Cancela</a>
+								</div>
+							</div><!-- fim row botoes -->
+							   
+							 </form><!-- fim form -->  						
+							</div><!-- fim col-sm-12 -->
+						</div><!-- fim row -->
+						
+				</div><!-- fim container -->
+			</div><!-- fim pag container -->
+	
+

@@ -1,0 +1,137 @@
+<div class="row">
+	<ol id="breadcrumb">		
+		<li> <a href="#home"> <i class="fa fa-home"></i> Página Inicial </a> </li>
+		<li> <a href="#"> <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+		<li> <a href="#requerente-list"> Requerente</a> </li>
+		<li> <a href="#"> <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+		<li> <a href="#requerente-new"> Nova Requerente</a> </li>
+	</ol>
+</div>
+
+<div id="rowForNav" ng-include="'app/shared/template/app-side-bar.html'"></div>
+
+<div class="page-content-wrapper" class="no-print">
+		<div class="page-content">
+			<div class="row ">
+				<div class="col-md-12 col-sm-12">
+					
+					<form method="POST" ng-submit="requerenteCreateController.novoCadastro()" >
+						<div class="form-group">							
+								<label>Nome</label>							
+								<input class="form-control" type="text" ng-model="requerenteCreateController.requerente.nome" id="nome">							
+						</div>
+						<div class="form-group">
+						<div class="row">
+							<div class="col-xs-4 col-md-4">
+								<label for="matricula" class="col-form-label" >Matricula</label>							
+								<input class="form-control" type="text" ng-model="requerenteCreateController.requerente.matricula" id="matricula">
+							</div>
+							<div class="col-xs-4 col-md-4">
+								<label for="contato" class="col-form-label" >Contato</label>							
+								<input class="form-control" type="text" ng-model="requerenteCreateController.requerente.contato" id="contato">
+					
+							</div>
+							<div class="col-xs-4 col-md-4">								
+								<label>Tipo de Pessoa</label>
+								<select class="form-control" ng-model="requerenteCreateController.requerente.tipo" >
+									<option value = "">Selecione</option>
+									<option value = "pf">Pessoa Fisica</option>
+									<option value = "pj">Pessoa Juridica</option>
+								</select>					
+							</div>
+						</div>						
+						</div>
+						<div class="form-group">
+						<div class="row">
+							
+							<div class="col-xs-4 col-md-4" ng-show="requerenteCreateController.requerente.tipo =='pf'">
+								<label for="cpf" class="col-form-label" >CPF</label>							
+								<input class="form-control" type="text" ng-model="requerenteCreateController.requerente.cpf" id="cpf">
+							</div>
+						
+						
+							<div class="col-xs-4 col-md-4"  ng-show="requerenteCreateController.requerente.tipo =='pj'">
+							
+								<label for="cnpj" class="col-form-label" >CNPJ</label>							
+								<input class="form-control"  placeholder="00.000.000/0000-00" type="text" ng-model="requerenteCreateController.requerente.cnpj" id="cnpj">
+								</div>
+							
+							<div class="col-xs-4 col-md-4">
+							<label>Secretaria</label>
+							<select class="form-control" for="secretaria" ng-model="requerenteCreateController.requerente.secretaria" ng-options = "secretaria as secretaria.nome for secretaria  in requerenteCreateController.secretarias">
+							<option value = "">Selecione</option>
+							</select>
+							</div>
+						</div>
+						</div>
+						<div class="form-group">
+						<div class="row">
+							<div class="col-xs-8 col-md-8">
+								<label for="rua" class="col-form-label" >Rua :</label>							
+								<input class="form-control" type="text" ng-model="requerenteCreateController.requerente.endereco.rua" id="rua">
+							</div>
+							<div class="col-xs-4 col-md-4">
+								<label for="numero" class="col-form-label" >Numero :</label>							
+								<input class="form-control" type="text" ng-model="requerenteCreateController.requerente.endereco.numero" id="numero">
+							</div>
+						</div>
+						</div>
+						<div class="form-group">
+						<div class="row">
+							<div class="col-xs-6 col-md-6">
+								<label for="bairro" class="col-form-label" >Bairro :</label>							
+								<input class="form-control" type="text" ng-model="requerenteCreateController.requerente.endereco.bairro" id="bairro">
+							</div>		
+						
+							<div class="col-xs-6 col-md-6">
+								<label for="complemento" class="col-form-label" >Complemento</label>							
+								<input class="form-control" type="text" ng-model="requerenteCreateController.requerente.endereco.complemento" id="complemento">
+							</div>
+												
+						</div>
+						</div>
+						
+						<div class="form-group">
+						<div class="row">
+							<div class="col-xs-4 col-md-4">
+								<label for="cep" class="col-form-label" >Cep :</label>							
+								<input class="form-control" type="text" placeholder="55.000.000" ng-model="requerenteCreateController.requerente.endereco.cep" id="cep">
+							</div>
+							<div class="col-xs-4 col-md-4">
+								<label for="quadra" class="col-form-label" >Quadra :</label>							
+								<input class="form-control" type="text" ng-model="requerenteCreateController.requerente.endereco.quadra" id="quadra">
+							</div>
+							<div class="col-xs-4 col-md-4">
+								<label for="lotes" class="col-form-label" >Lotes</label>							
+								<input class="form-control" type="text" ng-model="requerenteCreateController.requerente.endereco.lotes" id="lotes">
+						
+							</div>
+						</div>
+						</div>
+						<div class="form-group">
+						<div class="row">
+							<div class="col-xs-4 col-md-4">
+							<label for="loteamento" class="col-form-label" >Loteamento</label>							
+							<input class="form-control" type="text" ng-model="requerenteCreateController.requerente.endereco.loteamento" id="loteamento">
+							</div>
+							<div class="col-xs-8 col-md-8">
+								<label for="email" class="col-form-label" >Email</label>							
+								<input class="form-control" type="text" placeholder="email@email.com"ng-model="requerenteCreateController.requerente.email" id="email">
+							</div>
+						</div>
+						</div>
+					
+						<div class="row">
+						<div class="col-md-9 col-md-offset-9">
+							<input class="btn btn-success" type="submit" value="Confirmar" />
+							<a href="#requerente-list" class="btn btn-default">Cancela</a>
+						</div>
+						</div>
+					</form>	
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+

@@ -1,0 +1,170 @@
+<div class="row">
+	<ol id="breadcrumb">		
+		<li> <a href="#home"> <i class="fa fa-home"></i> Página Inicial </a> </li>
+		<li> <a href="#"> <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+		<li> <a href="#requerimento-list"> Requerimento</a> </li>
+		<li> <a href="#"> <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+		<li> <a href="#requerimento-new"> Novo Requerimento</a> </li>
+	</ol>
+</div>
+
+<div id="rowForNav" ng-include="'app/shared/template/app-side-bar.html'"></div>
+
+<div class="page-content-wrapper" class="no-print">
+		<div class="page-content">
+			<div class="row ">
+				<div class="col-md-12 col-sm-12">
+					
+					<form method="POST" ng-submit="requerimentoUpdateController.update()" >
+						<div class="form-group">
+							<div class="row">	
+								<div class="col-xs-8 col-md-8">						
+									<label>Nome</label>							
+									<input class="form-control" type="text" ng-model="requerimentoUpdateController.requerimento.nomeProprientario" id="nome">	
+								</div>
+								<div class="col-xs-4 col-md-4">
+									<label for="dataRequerimento" class="col-form-label" >Data Requerimento</label>							
+									<input class="form-control" type="text" ng-model="requerimentoUpdateController.requerimento.dataRequerimento" id="dataRequerimento"   >
+								</div>
+							</div>				
+						</div>
+						<div class="form-group">
+						<div class="row">
+							<div class="col-xs-4 col-md-4">
+								<label for="protocolo" class="col-form-label" >Número Protocolo</label>							
+								<input class="form-control" type="text" ng-model="requerimentoUpdateController.requerimento.numeroProtocolo" id="protocolo">
+							</div>
+							<div class="col-xs-4 col-md-4">
+								<label for="contato" class="col-form-label" >Contato</label>							
+								<input class="form-control" type="text" ng-model="requerimentoUpdateController.requerimento.telefoneProprietario" id="contato">
+					
+							</div>
+							<div class="col-xs-4 col-md-4">
+							
+								
+								<label>Tipo de Pessoa</label>
+								<select class="form-control" ng-model="requerimentoCreateController.requerimento.tipo" >
+									<option value = "">Selecione</option>
+									<option value = "pf" ng-selected="requerimentoUpdateController.selecionadocpf">Pessoa Fisica</option>
+									<option value = "pj" ng-selected="requerimentoUpdateController.selecionadocnpj">Pessoa Juridica</option>
+								</select>
+						
+							</div>
+						</div>						
+						</div>
+						<div class="form-group">
+						<div class="row">
+							
+							<div class="col-xs-4 col-md-4" ng-show="requerimentoUpdateController.requerimento.tipo =='pf' || requerimentoUpdateController.selecionadocpf">
+								<label for="cpf" class="col-form-label" >CPF</label>							
+								<input class="form-control" type="text" ng-model="requerimentoUpdateController.requerimento.cpf" id="cpf">
+							</div>
+						
+						
+							<div class="col-xs-4 col-md-4"  ng-show="requerimentoUpdateController.requerimento.tipo =='pj' || requerimentoUpdateController.selecionadocnpj">
+							
+								<label for="cnpj" class="col-form-label" >CNPJ</label>							
+								<input class="form-control" type="text" ng-model="requerimentoUpdateController.requerimento.cnpj" id="cnpj">
+								</div>
+							
+							<div class="col-xs-4 col-md-4">
+							<label>Servico</label>
+							<select class="form-control" for="servico" ng-model="requerimentoUpdateController.requerimento.servico" ng-options = "servico as servico.nome for servico  in requerimentoUpdateController.servicos track by servico.id">
+							<option value = "">Selecione</option>
+							</select>
+							</div>
+							
+							<div class="col-xs-4 col-md-4">
+							<label>Requerente</label>
+							<select class="form-control" for="requerente" ng-model="requerimentoUpdateController.requerimento.requerente" ng-options = "requerente as requerente.nome for requerente  in requerimentoUpdateController.requerentes track by requerente.id">
+							<option value = "">Selecione</option>
+							</select>
+							</div>
+						</div>
+						</div>
+						<div class="form-group">
+						<div class="row">
+							
+							<div class="col-xs-8 col-md-8">
+								<label for="rua" class="col-form-label" >Rua :</label>							
+								<input class="form-control" type="text" ng-model="requerimentoUpdateController.requerimento.endereco.rua" id="rua">
+							</div>
+							
+							<div class="col-xs-4 col-md-4">
+								<label for="numero" class="col-form-label" >Numero :</label>							
+								<input class="form-control" type="text" ng-model="requerimentoUpdateController.requerimento.endereco.numero" id="numero">
+							</div>
+						</div>
+						</div>
+						<div class="form-group">
+						<div class="row">
+						
+							<div class="col-xs-6 col-md-6">
+								<label for="bairro" class="col-form-label" >Bairro :</label>							
+								<input class="form-control" type="text" ng-model="requerimentoUpdateController.requerimento.endereco.bairro" id="bairro">
+							</div>	
+							<div class="col-xs-6 col-md-6">
+								<label for="complemento" class="col-form-label" >Complemento</label>							
+								<input class="form-control" type="text" ng-model="requerimentoUpdateController.requerimento.endereco.complemento" id="complemento">
+							</div>
+													
+						</div>
+						</div>
+						
+						<div class="form-group">
+						<div class="row">
+							<div class="col-xs-4 col-md-4">
+								<label for="cep" class="col-form-label" >Cep :</label>							
+								<input class="form-control" type="text" ng-model="requerimentoUpdateController.requerimento.endereco.cep" id="cep">
+							</div>
+							<div class="col-xs-4 col-md-4">
+								<label for="quadra" class="col-form-label" >Quadra :</label>							
+								<input class="form-control" type="text" ng-model="requerimentoUpdateController.requerimento.endereco.quadra" id="quadra">
+							</div>
+							<div class="col-xs-4 col-md-4">
+								<label for="lotes" class="col-form-label" >Lotes</label>							
+								<input class="form-control" type="text" ng-model="requerimentoUpdateController.requerimento.endereco.lotes" id="lotes">
+						
+							</div>
+						</div>
+						</div>
+						<div class="form-group">
+						<div class="row">
+							<div class="col-xs-4 col-md-4">
+								<label for="dataProtocolo" class="col-form-label" >Data Numero Protocolo</label>							
+								<input class="form-control" type="text" ng-model="requerimentoUpdateController.requerimento.dataNumeroProtocolo" id="dataProtocolo"  >
+							</div>
+							
+							<div class="col-xs-4 col-md-4">
+							<label for="complementoObeservacao" class="col-form-label" >Complemento de Observação</label>							
+							<textarea class="form-control" type="text" ng-model="requerimentoUpdateController.requerimento.complementoObservacao" id="complementoObeservacao" required="required"></textarea>
+							</div>
+							
+							<div class="col-xs-4 col-md-4">
+							<label for="loteamento" class="col-form-label" >Loteamento</label>							
+							<input class="form-control" type="text" ng-model="requerimentoUpdateController.requerimento.endereco.loteamento" id="loteamento">
+							</div>
+							
+							<div class="col-xs-4 col-md-4">
+							<label for="valorTotal" class="col-form-label" >Valor Total</label>							
+							<input class="form-control" type="text"  ng-model="requerimentoUpdateController.requerimento.valorTaxaTotal" id="valorTotal" >
+							</div>
+							
+						
+						</div>
+						</div>
+					
+						<div class="row">
+						<div class="col-md-9 col-md-offset-9">
+							<input class="btn btn-success" type="submit" value="Confirmar" />
+							<a href="#requerimento-list" class="btn btn-default">Cancelar</a>
+						</div>
+						</div>
+					</form>	
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+

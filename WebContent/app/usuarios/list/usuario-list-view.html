@@ -1,0 +1,83 @@
+<div class="row">
+	<ol id="breadcrumb">		
+		<li> <a href="#home"> <i class="fa fa-home"></i> Página Inicial </a> </li>
+		<li> <a href="#"> <i class="fa fa-angle-right" aria-hidden="true"></i></a> </li>
+		<li> <a href="#usuario-list"> Usuario</a> </li>
+	</ol>
+</div>
+
+<div id="rowForNav" ng-include="'app/shared/template/app-side-bar.html'"></div>
+ 
+ <div class="page-content-wrapper" class="no-print">
+		<div class="page-content">
+			
+			<div class="row ">
+				<div class="col-md-12 col-sm-12">
+				<div class="col-sm-12">
+					<div class="tab-content">
+						
+						<div class="tab-pane active" id="tab-sobre">
+							<div class="panel panel-default">
+							    <div class="panel-heading">
+							    	
+									<div class="panel-ctrls pull-right">
+										<div class="DTTT btn-group  mt-sm">
+											
+										</div>
+									</div>
+									<h2>Listagem de Usuarios</h2>
+							    </div>
+								<div class="panel-body no-padding">
+									<table class="table table-striped table-bordered datatables no-footer dataTable">
+										<thead>
+											<tr>
+												<th>Matricula</th>
+												<th>Nome</th>
+												<th>Email</th>
+												<th>#</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr ng-repeat="usuario in dataOfGenericList | 
+												   startFrom:currentPageOfGenericList*pageSizeOfGenericList | 
+												   limitTo:pageSizeOfGenericList">
+												   
+												<td>{{usuario.matricula}}</td>
+												<td>{{usuario.name}}</td>
+												<td>{{usuario.email}}</td>
+												<td>
+													 
+												</td>
+											 </tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="panel-footer">
+									<div class="row">
+										<div class="col-sm-6 col-md-offset-6">
+											<div class="dataTables_paginate paging_bootstrap" id="example_paginate">
+												<ul class="pagination pull-right m-n">
+													<li ng-hide="currentPageOfGenericList == 0" ng-click="currentPageOfGenericList=currentPageOfGenericList-1" class="previous">
+														<a> Página Anterior </a>
+													</li>
+													<li ng-hide="currentPageOfGenericList >= dataOfGenericList.length/pageSizeOfGenericList - 1" ng-click="currentPageOfGenericList=currentPageOfGenericList+1" class="previous">
+														<a> Próxima Página </a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div><!--  .tab-content  -->
+				</div>
+
+
+				</div>	
+			</div>
+		</div>
+</div>
+
+

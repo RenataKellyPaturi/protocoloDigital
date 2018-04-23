@@ -1,0 +1,183 @@
+<div class="row">
+	<ol id="breadcrumb">		
+		<li> <a href="#home"> <i class="fa fa-home"></i> Página Inicial </a> </li>
+		<li> <a href="#"> <i class="fa fa-angle-right" aria-hidden="true"></i></a> </li>
+		<li> <a href="#requerente-list"> Requerente</a> </li>
+	</ol>
+</div>
+
+<div id="rowForNav" ng-include="'app/shared/template/app-side-bar.html'"></div>
+ 
+ <div class="page-content-wrapper" class="no-print">
+		<div class="page-content">
+			
+			<div class="row ">
+				<div class="col-md-12 col-sm-12">
+				<div class="col-sm-12">
+					<div class="tab-content">
+						
+						<div class="tab-pane active" id="tab-sobre">
+							<div class="panel panel-default">
+							    <div class="panel-heading">
+							    	
+									<div class="panel-ctrls pull-right">
+										<div class="DTTT btn-group  mt-sm">
+											<a href="#requerente-new" class="btn btn-info DTTT_button_text">
+											<i class="ti ti-plus"></i> <span>Novo Requerente</span></a>
+										</div>
+									</div>
+									<h2>Listagem de Requerente</h2>
+							    </div>
+								<div class="panel-body no-padding">
+									<table class="table table-striped table-bordered datatables no-footer dataTable">
+										<thead>
+											<tr>
+												<th>Nome</th>
+												<th>Email</th>
+												<th>Contato</th>
+												<th>#</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr ng-repeat="requerente in dataOfGenericList | 
+												   startFrom:currentPageOfGenericList*pageSizeOfGenericList | 
+												   limitTo:pageSizeOfGenericList">
+												   
+												<td>{{requerente.nome}}</td>
+												<td>{{requerente.email}}</td>
+												<td>{{requerente.contato}}</td>
+												<td>
+													<a href="#requerente-update/{{requerente.id}}" ng-hide="requerente.nome == 'Carregando...' || requerente.nome == 'Nenhum requerente para listar :.'">
+														<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+													</a>&nbsp;
+													<a ng-click="RequerenteListController.inativaRequerente(requerente.id)" ng-checked="{{requerente.status}}">
+														<i class="fa fa-trash" aria-hidden="true"></i>
+													</a>
+													 
+												</td>
+											 </tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="panel-footer">
+									<div class="row">
+										<div class="col-sm-6 col-md-offset-6">
+											<div class="dataTables_paginate paging_bootstrap" id="example_paginate">
+												<ul class="pagination pull-right m-n">
+													<li ng-hide="currentPageOfGenericList == 0" ng-click="currentPageOfGenericList=currentPageOfGenericList-1" class="previous">
+														<a> Página Anterior </a>
+													</li>
+													<li ng-hide="currentPageOfGenericList >= dataOfGenericList.length/pageSizeOfGenericList - 1" ng-click="currentPageOfGenericList=currentPageOfGenericList+1" class="previous">
+														<a> Próxima Página </a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div><!--  .tab-content  -->
+				</div>
+
+		
+		
+
+				</div>	
+			</div>
+		</div>
+</div>
+
+
+<!-- Include Side Bar --
+<div ng-include="" class="static-sidebar-wrapper {{sidebarClassTheme}}"></div>
+   
+   <div class="static-content-wrapper">
+   	<div class="static-content">
+   		<div class="page-content">
+   		
+   			<ol class="breadcrumb">
+				<li class="">
+					<a href="#home">Início</a>
+				</li>
+				<li class="active">
+					<a>Listagem de Requerente</a>
+				</li>
+            </ol>
+   		</div>
+   		<div class="container-fluid">
+	   		
+	   		<div class="row">
+				
+	   			<div class="col-sm-12">
+					<div class="tab-content">
+						
+						<div class="tab-pane active" id="tab-sobre">
+							<div class="panel panel-default">
+							    <div class="panel-heading">
+							    	
+									<div class="panel-ctrls pull-right">
+										<div class="DTTT btn-group  mt-sm">
+											<a href="#requerente-new" class="btn btn-info DTTT_button_text">
+											<i class="ti ti-plus"></i> <span>Nova Requerente</span></a>
+										</div>
+									</div>
+									<h2>Listagem de Requerente</h2>
+							    </div>
+								<div class="panel-body no-padding">
+									<table class="table table-striped table-bordered datatables no-footer dataTable">
+										<thead>
+											<tr>
+												<th>Nome</th>
+												<th>Email</th>
+												<th>Contato</th>
+												<th>#</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr ng-repeat="requerente in dataOfGenericList | 
+												   startFrom:currentPageOfGenericList*pageSizeOfGenericList | 
+												   limitTo:pageSizeOfGenericList">
+												   
+												<td>{{requerente.nome}}</td>
+												<td>{{requerente.email}}</td>
+												<td>{{requerente.contato}}</td>
+												<td>
+													<a href="#requerente-update/{{requerente.id}}" class="btn btn-primary" ng-hide="requerente.nome == 'Carregando...' || requerente.nome == 'Nenhum requerente para listar :.'">
+														Atualizar
+													</a>
+													<a class="btn btn-primary" ng-click="requerenteListController.inativaRequerente(requerente.id)" ng-checked="{{requerente.status}}">
+														Inativar
+													</a>
+													 
+												</td>
+											 </tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="panel-footer">
+									<div class="row">
+										<div class="col-sm-6 col-md-offset-6">
+											<div class="dataTables_paginate paging_bootstrap" id="example_paginate">
+												<ul class="pagination pull-right m-n">
+													<li ng-hide="currentPageOfGenericList == 0" ng-click="currentPageOfGenericList=currentPageOfGenericList-1" class="previous">
+														<a> Página Anterior </a>
+													</li>
+													<li ng-hide="currentPageOfGenericList >= dataOfGenericList.length/pageSizeOfGenericList - 1" ng-click="currentPageOfGenericList=currentPageOfGenericList+1" class="previous">
+														<a> Próxima Página </a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div><!-- .tab-content --
+				</div>
+	   		</div>
+		</div>
+   	</div>
+</div>-->

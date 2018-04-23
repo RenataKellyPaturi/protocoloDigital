@@ -1,0 +1,64 @@
+<!-- INCLUDE HEADER -->
+<section class= "page-container">
+	
+	<!-- INCLUDE SIDE BAR -->
+	<asside id="rowForNav" ng-include="'app/shared/template/app-side-bar.html'" class="row"></asside>
+
+	<div class="page-content-wrapper" class="no-print">
+		<div class="page-content">
+			<h3 class="page-title" class="no-print">
+				{{appCtrl.tituloDaAplicacao}} <small> {{appCtrl.subtituloDaAplicacao}} </small>
+			</h3>
+			<div class="page-bar" class="no-print">
+				<ul class="page-breadcrumb">
+					<li>
+						<a href="#home">
+							<i class="fa fa-home"></i>
+						</a>
+					</li>
+					<li>
+						<a><i class="fa fa-caret-right"></i></a>
+					</li>
+					<li>
+						<a>
+							{{appCtrl.tituloDaAplicacao}}
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="row ">
+				<div class="col-md-12 col-sm-12">
+
+					<!-- Portlets - INICIO -->
+					<div class="portlet box blue-steel">
+						<div class="portlet-title">
+							<div class="caption">
+								{{appCtrl.tituloDaAplicacao}} <small> {{appCtrl.subtituloDaAplicacao}} </small>
+							</div>
+							<div class="tools" class="no-print">
+								<a href="{{appCtrl.linkToolsHref}}"> {{appCtrl.linkToolsTitulo}} <i class="{{appCtrl.linkToolsIcon}}"></i>  </a>
+							</div>
+						</div>
+						<div class="portlet-body">
+
+							<!--
+								CONTENT INCLUDE TEMPLATE TABLE
+							-->
+							<div ng-include="loadContent()" onload="onLoadContent()"></div>
+
+							<nav class="no-print">
+								<ul id="tableGenericListPagination" class="pagination">
+									<!-- FOR VIA CONTROL -->
+								</ul>
+							</nav>
+
+						</div>
+					</div>
+					<!-- Portlets - TERMINO -->
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>

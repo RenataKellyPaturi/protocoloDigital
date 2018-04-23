@@ -1,0 +1,26 @@
+<section id="login">
+
+	<div id="centerForm">
+
+		<div class="content_marca">
+			<h3><img src="assets/img/brand-top.png" alt=""></h3>
+		</div>
+
+		<form id="loginForm" ng-submit="loginController.submit()">
+			<input type="text" ng-model="loginController.user.cpf" placeholder="CPF" required class="form-control" />
+			<input type="password" required ng-model="loginController.user.password" placeholder="Senha" required class="form-control" />
+			<input type="submit" value="Acessar">
+		</form>
+
+		<div class="content_extra_links">
+			<!-- <a href="#recuperar-login">Não consigo acessar.</a> -->
+		</div>
+
+	</div>
+
+	<div class="loginFooter">
+		© 2016 - Desenvolvido pelo Núcleo de Tecnologia PMC <br>
+		Prefeitura Municipal de Caruaru.
+	</div>
+
+</section>

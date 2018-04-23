@@ -1,0 +1,106 @@
+<div class="row no-print">
+	<ol id="breadcrumb">		
+		<li> <a href="#home"> <i class="fa fa-home"></i> PÃ¡gina Inicial </a> </li>
+		<li> <a href="#"> <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+		<li> <a href="#processo-list"> Processo</a> </li>
+		<li> <a href="#"> <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+		<li> <a href="#processo-new"> Visualizar Processo</a> </li>
+	</ol>
+</div>
+
+
+<div id="rowForNav" ng-include="'app/shared/template/app-side-bar.html'" class="no-print"></div>
+ 
+  <div class="page-content-wrapper borda">
+		<div class="page-content borda">
+			<div class="row borda">
+				<div class="col-md-12 col-sm-12">
+				<div class="col-sm-12">
+					<div class="tab-content borda">
+						
+						<div class="tab-pane active borda" id="tab-sobre">
+							<div class="panel panel-default borda">
+							    <div class="panel-heading">
+							    	
+									<div class="panel-ctrls pull-right no-print">
+										<div class="DTTT btn-group  mt-sm">
+											<a  onclick="window.print()"class="btn btn-info DTTT_button_text">
+											<i class="ti ti-plus"></i> <span>Imprimir</span></a>
+										</div>
+									</div>
+									<h2 class="no-print">Visualizar Processos</h2>
+							    </div>
+								<div class="panel-body no-padding borda">
+									<table class="table table-striped table-bordered datatables no-footer dataTable no-print">
+										<div class="panel-body no-padding">
+									
+									<div >
+										<img src="assets/img/logoreport.png" alt="Prefeitura de Caruaru">
+									</div>
+									</br>
+									
+										<h3>Protocolo Eletrônico</h3>
+										<h4>Acompanhamento de Processo</h4>
+									
+									
+								<table class="table">
+										
+										<tbody>
+											<tr>
+												<td> <b>Número do Processo: </b> </td>
+												<td  >{{processoPrintController.processo.numeroProcesso}}	</td>
+												<td > <b>Data do Processo: </b> </td>
+												<td >{{processoPrintController.processo.dataProcesso}}</td>
+											</tr>
+											<tr>
+												<td> <b>Nome: </b> </td>
+												<td>
+													<span 
+														> 
+														{{processoPrintController.processo.requerente.nome}}
+													</span>
+												</td>
+												<td colspan="2"></td>
+											</tr>
+											<tr>
+												<td> <b>Serviço: </b> </td>
+												<td>
+													<span 
+														> 
+														{{processoPrintController.processo.servico.nome}}
+													</span>
+												</td>
+												<td> <b>Secretaria: </b> </td>
+												<td>
+													<span 
+														> 
+														{{processoPrintController.processo.secretaria.nome}}
+													</span>
+												</td>
+											</tr>
+											<tr>
+												<td> <b>Anexos: </b> </td>
+												<td >{{processoPrintController.processo.documentos}}	</td>
+											</tr>
+										</tbody>
+									</table>
+									
+									
+								</div>
+									</table>
+								</div>
+							
+							</div>
+						</div>
+
+					</div><!--  .tab-content  -->
+				</div>
+
+		
+		
+
+				</div>	
+			</div>
+		</div>
+</div>
+  

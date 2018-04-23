@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html ng-app="app" ng-cloak ng-controller="AppCtrl as appCtrl">
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="description" content="pmc">
+        <meta name="author" content="pmc">
+    
+        <title>PMC | Protocolo</title>
+    
+    	 <!-- Add to homescreen for Chrome on Android -->
+	    <meta name="mobile-web-app-capable" content="yes">
+	    <link rel="icon" sizes="192x192" href="assets/img/android-desktop.png">
+	    
+	    <!-- Add to homescreen for Safari on iOS -->
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+	    <meta name="apple-mobile-web-app-status-bar-stye" content="black">
+	    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+	    <link rel="apple-touch-icon-precomposed" href="assets/img/ios-desktop.png">
+	    
+	    <!-- FONT -->
+	    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=pt-br">
+	
+	    <!-- Fa Icons -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">	
+	    
+	    <!-- Bootstrap CSS -->
+		<!-- <link href="vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+	    <link rel="stylesheet" href="vendors/bootstrap/css/bootstrap-theme.css">
+    	<link rel="stylesheet" href="vendors/bootstrap/css/bootstrap.css">
+            
+	    <!-- My CSS -->
+	    <link rel="stylesheet" href="assets/css/style.css"  media="screen">
+	    <link rel="stylesheet" href="assets/css/login.css"  media="screen"> 
+	    <link rel="stylesheet" href="assets/css/layout.css"  media="screen">
+	    <link  rel="stylesheet" href="assets/css/cor.css" media="screen"> 
+	   <!--  <link href="assets/css/components.css" rel="stylesheet">  -->
+	    <link rel="stylesheet" href="assets/css/print.css" media="print">
+
+        
+        
+    
+    </head>
+
+    <body>
+    	
+    	<!-- Topo -->
+		<nav ng-include="'app/shared/template/topo.html'" class="navbar navbar-inverse navbar-fixed-top"></nav>
+		<!-- ./Topo -->
+		
+		<div class="container-fluid" role="main" ng-cloak>
+        	<div ng-view onload="onLoadHtmlFileInNgView()" ng-cloak></div>
+        	<div ng-include="'app/shared/template/rodape.html'" ng-cloak></div>
+		<!-- NG INCLUDE -->
+		</div>
+
+        <!-- Vendors -->
+        <script src="vendors/angularjs/angular.min.js"></script>
+        <script src="vendors/angularjs/angular-touch.js"></script>
+        <script src="vendors/angularjs/angular-route.js"></script>
+        <script src="vendors/jquery/jquery-2.1.4.min.js"></script>
+        <script src="vendors/jquery/jquery-ui.js"></script>
+        <script src="vendors/bootstrap/js/bootstrap.min.js"></script>
+        <script src="vendors/bootbox/bootbox.min.js"></script>
+        <script src="vendors/bootstrap/js/mascaraData.js"></script> 
+       <script src="vendors/mascara/money.function.js"></script>  
+        <script src="vendors/mascara/mascara.js"></script> 
+        <script src="vendors/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
+		<script src="vendors/bootstrap-datetimepicker/bootstrap-datetimepicker.pt-BR.js"></script>
+        <!-- .../ Vendors -->
+
+        <!-- Application -->
+        <script src="app/app-module.js"></script>
+        <script src="app/app-directives.js"></script>
+        <script src="app/app.services.js"></script>
+        <script src="app/app-filters.js"></script>
+        <script src="app/app-routes.js"></script>
+        <script src="app/app-run.js"></script>
+        <script src="app/app-controller.js"></script>
+	
+		<script src="app/login/login-controller.js"></script>
+        <script src="app/home/home-controller.js"></script>
+        <script src="app/home/home-controller.js"></script>
+        
+        <script src="app/secretaria/create/secretaria-create-controller.js"></script>
+		<script src="app/secretaria/update/secretaria-update-controller.js"></script>
+		<script src="app/secretaria/list/secretaria-list-controller.js"></script>
+		
+		<script src="app/servico/create/servico-create-controller.js"></script>
+		<script src="app/servico/update/servico-update-controller.js"></script>
+		<script src="app/servico/list/servico-list-controller.js"></script>
+		
+		<!--  comentado por nao esta usando no momento
+		<script src="app/orgaoMovimentacao/create/orgao-create-controller.js"></script>
+		<script src="app/orgaoMovimentacao/update/orgao-update-controller.js"></script>
+		<script src="app/orgaoMovimentacao/list/orgao-list-controller.js"></script> -->
+		
+		<script src="app/requerente/list/requerente-list-controller.js"></script>
+		<script src="app/requerente/create/requerente-create-controller.js"></script>
+		<script src="app/requerente/update/requerente-update-controller.js"></script>
+		
+		
+		<script src="app/processo/list/processo-list-controller.js"></script>
+		<script src="app/processo/create/processo-create-controller.js"></script>
+		<script src="app/processo/update/processo-update-controller.js"></script>
+		<script src="app/processo/print/processo-print-controller.js"></script>
+		
+		<script src="app/ficha-requerimento/create/requerimento-create-controller.js"></script>
+		<script src="app/ficha-requerimento/update/requerimento-update-controller.js"></script>
+		<script src="app/ficha-requerimento/list/requerimento-list-controller.js"></script>
+		
+		<script src="app/usuarios/list/usuario-list-controller.js"></script>
+		
+    </body>
+</html>
+
